@@ -47,5 +47,20 @@ function last(array, n) {
 	return array.slice(array.length - n);
 }
 
+//rest(array, [index])
+//returns the rest of the elements in an array. pass an index to return the values of the array from that index onward.
+function rest(array, n) {
+	if (!Array.isArray(array)) {
+		return;
+	}
+
+	//if n is not provided
+	if (!n) { return array.slice(1); }
+
+	//slice returns the array if n < 0
+	if (n < 0) { return [] };
+
+	return array.slice(n);
+}
 
 
