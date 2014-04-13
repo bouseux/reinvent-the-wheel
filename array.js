@@ -63,4 +63,38 @@ function rest(array, n) {
 	return array.slice(n);
 }
 
+//compact(array)
+//Returns a copy of the array with all falsy values removed. In JavaScript, false, null, 0, "", undefined and NaN are all falsy.
+function compact(array) {
+	if (!Array.isArray(array)) {
+		return;
+	}
+
+	var copy = [];
+
+	for (var i = 0; i < array.length; i++) {
+		if (array[i]) {
+			copy.push(array[i]);
+		}
+	}
+
+	return copy;
+}
+
+//OR (using Array.prototype.filter)
+function compact(array) {
+	if (!Array.isArray(array)) {
+		return;
+	}
+
+	var copy = array.filter(function(element) {
+		if (element) {
+			return element;
+		}
+	})
+
+	return copy;
+}
+
+
 
