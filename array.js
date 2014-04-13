@@ -96,5 +96,29 @@ function compact(array) {
 	return copy;
 }
 
+//flatten(array, [shallow])
+//Flattens a nested array (the nesting can be to any depth). If you pass shallow, the array will only be flattened a single level.
+function flatten(array, shallow) {
+
+
+	var _flatten = function(array, shallow, copy) {
+		if (!Array.isArray(array)) {
+			return;
+		}
+
+		array.forEach(function(element) {
+			if (!Array.isArray(element)) {
+				copy.push(element);
+			} else {
+				shallow ? Array.prototype.push.call(copy, element) : _flatten(element, shallow, copy);
+			}
+		})
+
+		return copy;
+	}
+
+	_flatten(array, shallow, []);
+}
+
 
 
