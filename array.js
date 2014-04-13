@@ -106,18 +106,19 @@ function flatten(array, shallow) {
 			return;
 		}
 
+
 		array.forEach(function(element) {
 			if (!Array.isArray(element)) {
 				copy.push(element);
 			} else {
-				shallow ? Array.prototype.push.call(copy, element) : _flatten(element, shallow, copy);
+				shallow ? Array.prototype.push.apply(copy, element) : _flatten(element, shallow, copy);
 			}
 		})
 
 		return copy;
 	}
 
-	_flatten(array, shallow, []);
+	return _flatten(array, shallow, []);
 }
 
 
