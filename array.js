@@ -121,5 +121,37 @@ function flatten(array, shallow) {
 	return _flatten(array, shallow, []);
 }
 
+//without(array, *values)
+//returns a copy of the array with all instances of the values removed.
+function without(array, values) {
+	var input = array;
+	var	output = [];
+	//arguments is an array-like object, which means it doesn't have any Array methods
+	var toRemove = Array.prototype.slice.call(arguments, 1);
+
+	if (!Array.isArray(input)) {
+		return;
+	}
+
+	var _comparator = function(element) {
+		for(var i = 0; i < toRemove.length; i++) {
+			if(element === toRemove[i]) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	input.forEach(function(element) {
+		if(!_comparator(element)) {
+			output.push(element);
+		}
+	})
+
+	return output;
+}
+
+
 
 
