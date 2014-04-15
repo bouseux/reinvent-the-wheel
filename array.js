@@ -152,6 +152,26 @@ function without(array, values) {
 	return output;
 }
 
+//partition(array, predicate) 
+//Split array into two arrays: 
+//one whose elements all satisfy predicate and one whose elements all do not satisfy predicate.
+function partition(array, predicate) {
+	var input = array;
+	var pass = [];
+	var fail = [];
+
+	if (!Array.isArray(input)) {
+		return;
+	}
+
+	input.forEach(function(element) {
+		(predicate(element) ? pass : fail).push(element);
+	})
+
+	return [pass, fail];
+
+}
+
 
 
 
