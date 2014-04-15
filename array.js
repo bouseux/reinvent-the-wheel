@@ -169,9 +169,42 @@ function partition(array, predicate) {
 	})
 
 	return [pass, fail];
-
 }
 
+//union(*arrays) 
+//Computes the union of the passed-in arrays: 
+//the list of unique items, in order, that are present in one or more of the arrays.
+function union(array) {
+	var arrays = Array.prototype.slice.call(arguments);
+
+	for(var i = 0; i < arrays.length; i++) {
+		if (!Array.isArray(arrays[i])) {
+			return;
+		}
+	}
+
+	var output = arrays[0];
+
+	var _comparator = function(element) {
+		for(var i = 0; i < output.length; i++) {
+			if(element === output[i]) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	for(var i = 1; i < arrays.length; i++) {
+		for (var j = 0; j < arrays[i].length; j++) {
+			if(!_comparator(arrays[i][j])) {
+				output.push(arrays[i][j]);
+			}
+		}
+	}
+
+	return output;
 
 
+}
 
