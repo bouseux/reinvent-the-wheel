@@ -243,3 +243,39 @@ function intersection(array) {
 
 }
 
+//difference(array, *others) 
+//Similar to without, but returns the values from array that are not present in the other arrays.
+function difference(array, others) {
+	var arrays = Array.prototype.slice.call(arguments);
+	var first = arrays[0];
+
+	for(var i = 0; i < arrays.length; i++) {
+		if (!Array.isArray(arrays[i])) {
+			return;
+		}
+	}
+
+	var output = [];
+
+	var _comparator = function(element, arrayToCompare) {
+		for(var i = 0; i < arrayToCompare.length; i++) {
+			if(element === arrayToCompare[i]) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	for(var i = 1; i < arrays.length; i++) {
+		for (var j = 0; j < first.length; j++) {
+			if(!_comparator(first[j], arrays[i])) {
+				output.push(first[j]);
+			}
+		}
+	}
+
+	return output;
+
+}
+
