@@ -205,6 +205,41 @@ function union(array) {
 
 	return output;
 
+}
+
+//intersection(*arrays)
+//Computes the list of values that are the intersection of all the arrays. 
+//Each value in the result is present in each of the arrays.
+function intersection(array) {
+	var arrays = Array.prototype.slice.call(arguments);
+
+	for(var i = 0; i < arrays.length; i++) {
+		if (!Array.isArray(arrays[i])) {
+			return;
+		}
+	}
+
+	var output = arrays[0];
+
+	var _comparator = function(element, arrayToCompare) {
+		for(var i = 0; i < arrayToCompare.length; i++) {
+			if(element === arrayToCompare[i]) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	for(var i = 1; i < arrays.length; i++) {
+		for (var j = 0; j < output.length; j++) {
+			if(!_comparator(output[j], arrays[i])) {
+				output = without(output, output[j]);
+			}
+		}
+	}
+
+	return output;
 
 }
 
