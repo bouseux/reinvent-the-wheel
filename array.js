@@ -304,3 +304,22 @@ function uniq(array, isSorted, iterator) {
 
 	return output;
 }
+
+//zip(*arrays) 
+//Merges together the values of each of the arrays with the values at the corresponding position. 
+function zip(array) {
+	var arrays = Array.prototype.slice.call(arguments);
+	var numFields = arrays[0].length;
+	var output = [];
+
+	for(var i = 0; i < arrays.length; i++) {
+		for(var j = 0; j < numFields; j++) {
+			if(!Array.isArray(output[j])) {
+				output[j] = [];
+			}
+			output[j][i] = arrays[i][j];
+		}
+	}
+
+	return output;
+}
