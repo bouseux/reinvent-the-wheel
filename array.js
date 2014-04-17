@@ -279,3 +279,28 @@ function difference(array, others) {
 
 }
 
+//uniq(array)
+//Produces a duplicate-free version of the array, using === to test object equality. 
+function uniq(array, isSorted, iterator) {
+
+	var input = array;
+	var output = [];
+
+	var _comparator = function(element, arrayToCompare) {
+		for(var i = 0; i < arrayToCompare.length; i++) {
+			if(element === arrayToCompare[i]) {
+				return true;
+			}
+		}
+
+		return false;
+	}	
+
+	for(var i = 0; i < input.length; i++) {
+		if(!_comparator(input[i], output)) {
+			output.push(input[i]);
+		}
+	}
+
+	return output;
+}
