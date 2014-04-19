@@ -323,3 +323,36 @@ function zip(array) {
 
 	return output;
 }
+
+//object(list, [values]) 
+//Converts arrays into objects. Pass either a single list of [key, value] pairs, or a list of keys, and a list of values. 
+//If duplicate keys exist, the last value wins.
+function object(list, values) {
+	console.log(arguments);
+	var values = Array.prototype.slice.call(arguments, 1);
+	var zipped;
+	var output = {};
+	var key;
+	var value;
+
+	//if only a single list of key-value pairs is provided
+	if(!values.length) {
+		for(var i = 0; i < list.length; i++) {
+			key = list[i][0];
+			value = list[i][1];
+			output[key] = value;
+		}
+	} else {
+		zipped = zip(arguments[0], arguments[1][0]);
+		output = object(zipped);
+	}
+
+	return output;
+}
+
+
+
+
+
+
+
