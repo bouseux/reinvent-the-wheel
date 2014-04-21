@@ -357,8 +357,17 @@ function indexOf(array, value) {
 	return array.indexOf(value);
 }
 
-
-
+//lastIndexOf(array, value, [fromIndex]) 
+//Returns the index of the last occurrence of value in the array, or -1 if value is not present. 
+//Uses the native lastIndexOf function if possible. 
+//Pass fromIndex to start your search at a given index.
+function lastIndexOf(array, value, fromIndex) {
+	if(!fromIndex) {
+		return array.lastIndexOf(value);
+	} else {
+		return array.lastIndexOf(value, fromIndex);
+	}
+}
 
 
 
