@@ -350,6 +350,13 @@ function object(list, values) {
 	return output;
 }
 
+//indexOf(array, value)
+//Returns the index at which value can be found in the array, or -1 if value is not present in the array. 
+//Uses the native indexOf function unless it's missing.
+function indexOf(array, value) {
+	return array.indexOf(value);
+}
+
 
 
 
