@@ -369,6 +369,22 @@ function lastIndexOf(array, value, fromIndex) {
 	}
 }
 
+//sortedIndex(list, value, [iterator]) 
+//Determines the index at which the value should be inserted into the list in order to maintain the list's sorted order. 
+//If an iterator function is provided, it will be used to compute the sort ranking of each value, including the value you pass. 
+function sortedIndex(array, obj, iterator, context) {
+	var low = 0;
+	var high = array.length;
+	var value = iterator ? obj[iterator] : obj;
+
+	while (low < high) {
+		var mid = Math.round( (low + high) / 2);
+		var midValue = iterator ? array[mid][iterator] : array[mid];
+		midValue < value ? low =  mid + 1 : high = mid;
+	}
+
+	return low;
+}
 
 
 
