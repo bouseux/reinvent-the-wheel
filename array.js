@@ -378,7 +378,7 @@ function sortedIndex(array, obj, iterator, context) {
 	var value = iterator ? obj[iterator] : obj;
 
 	while (low < high) {
-		var mid = Math.round( (low + high) / 2);
+		var mid = Math.round( (low + high) / 2) - 1;
 		var midValue = iterator ? array[mid][iterator] : array[mid];
 		midValue < value ? low =  mid + 1 : high = mid;
 	}
