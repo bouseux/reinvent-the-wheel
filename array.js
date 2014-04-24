@@ -386,5 +386,42 @@ function sortedIndex(array, obj, iterator, context) {
 	return low;
 }
 
+//range([start], stop, [step]) 
+//Returns a list of integers from start to stop, incremented (or decremented) by step, exclusive. 
+function range(start, stop, step) {
+	var args = Array.prototype.slice.call(arguments);
+	var start = undefined;
+	var stop = undefined;
+	var step = undefined;
+	var output = [];
+
+	switch(args.length) {
+		case 1:
+		stop = args[0];
+		break;
+		case 2:
+		start = args[0];
+		stop = args[1];
+		break;
+		case 3:
+		start = args[0];
+		stop = args[1];
+		step = args[2];
+	}
+
+	if(stop > start) {
+		for(var i = start ? start : 0; i < stop; i = step ? i + step : i + 1) {
+			output.push(i);
+		}
+	} else {
+		for(var i = start ? start : 0; i > stop; i = step ? i - step : i - 1) {
+			output.push(i);
+		}
+	}
+
+
+	return output;
+}
+
 
 
