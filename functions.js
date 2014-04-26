@@ -11,14 +11,11 @@ function bind(func, object, parameters) {
 //to be run in the context of that object whenever they are invoked. 
 function bindAll(obj) {
 	var methods = Array.prototype.slice.call(arguments, 1);
+	if(methods.length === 0) { return; }
+
 	methods.forEach(function(method) {
-		if(typeof method !== 'function') {
-			return;
-		} else {
-			bind(method, obj);
-		}
+		obj[method] = bind(obj[method], obj);
 	})
 
-
-
+	return obj;
 }
