@@ -19,3 +19,7 @@ function bindAll(obj) {
 
 	return obj;
 }
+
+function partial() {
+	
+}
