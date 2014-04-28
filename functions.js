@@ -20,6 +20,13 @@ function bindAll(obj) {
 	return obj;
 }
 
-function partial() {
-	
+//partial(function, *arguments) 
+//Partially apply a function by filling in any number of its arguments, without changing its dynamic this value. 
+function partial(func) {
+	var args = Array.prototype.slice.call(arguments, 1);
+	var funcPartial = function() {
+		return func.apply(null, args.concat(Array.prototype.slice.call(arguments)));
+	}
+
+	return funcPartial;
 }
