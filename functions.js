@@ -25,8 +25,18 @@ function bindAll(obj) {
 function partial(func) {
 	var args = Array.prototype.slice.call(arguments, 1);
 	var funcPartial = function() {
-		return func.apply(null, args.concat(Array.prototype.slice.call(arguments)));
+		return func.apply(this, args.concat(Array.prototype.slice.call(arguments)));
 	}
 
 	return funcPartial;
+}
+
+//memoize(function)
+//Memoizes a given function by caching the computed result.
+function memoize(func) {
+	var memo = {};
+	return function() {
+		var key = arguments;
+		return memo[key] ? memo[key] : (memo[key] = func.apply(this, arguments));
+	};
 }
