@@ -40,3 +40,31 @@ function memoize(func) {
 		return memo[key] ? memo[key] : (memo[key] = func.apply(this, arguments));
 	};
 }
+
+//delay(function, wait, *arguments)
+//Much like setTimeout, invokes function after wait milliseconds. 
+//If you pass the optional arguments, they will be forwarded on to the function when it is invoked.
+function delay(func, wait) {
+	var args = Array.prototype.slice.call(arguments, 2);
+
+	return setTimeout(function() {
+		return func.apply(null, args);
+	}, wait);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
