@@ -52,8 +52,12 @@ function delay(func, wait) {
 	}, wait);
 }
 
-
-
+//defer(function, *arguments) 
+//Defers invoking the function until the current call stack has cleared, similar to using setTimeout with a delay of 0.
+function defer(func) {
+	var args = Array.prototype.slice.call(arguments, 1);
+	delay.apply(null, [func, 0].concat(args));
+}
 
 
 
