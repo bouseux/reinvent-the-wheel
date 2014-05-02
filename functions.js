@@ -59,6 +59,21 @@ function defer(func) {
 	delay.apply(null, [func, 0].concat(args));
 }
 
+//throttle(function, wait) 
+//Creates and returns a new, throttled version of the passed function, that, when invoked repeatedly, will only actually call the original function at most once per every wait milliseconds. 
+//Useful for rate-limiting events that occur faster than you can keep up with.
+function throttle(func, wait) {
+	var previous = 0;
+	var args;
+
+	return function() {
+		var now = Date.now();
+		if(now - previous > wait) {
+			func.apply(null, arguments);
+		}
+	}
+}
+
 
 
 
