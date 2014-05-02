@@ -65,11 +65,22 @@ function defer(func) {
 function throttle(func, wait) {
 	var previous = 0;
 	var args;
+	var timeout = null;
 
 	return function() {
 		var now = Date.now();
-		if(now - previous > wait) {
-			func.apply(null, arguments);
+		var remaining = wait - (now - previous);
+		var args = arguments;
+		if(!previous) {
+			return func.apply(null, args);
+		} else if(remaining <= 0) {
+			clearTimeout(timeout);
+			previous = now;
+			return func.apply(null, args);
+		} else {
+			timeout = setTimeout(function() {
+				return func.apply(null, args);
+			}, remaining);
 		}
 	}
 }
