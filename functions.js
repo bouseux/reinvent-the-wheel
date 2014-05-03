@@ -85,6 +85,23 @@ function throttle(func, wait) {
 	}
 }
 
+//debounce(function, wait, [immediate]) 
+//Creates and returns a new debounced version of the passed function which will postpone its execution 
+//until after wait milliseconds have elapsed since the last time it was invoked. 
+function debounce(func, wait, immediate) {
+	var timeout;
+	return function() {
+		var context = this, args = arguments;
+		var later = function() {
+			timeout = null;
+			if (!immediate) func.apply(context, args);
+		};
+		var callNow = immediate && !timeout;
+		clearTimeout(timeout);
+		timeout = setTimeout(later, wait);
+		if (callNow) func.apply(context, args);
+	};
+};
 
 
 
