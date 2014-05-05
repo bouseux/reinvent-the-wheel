@@ -112,12 +112,34 @@ function once(func) {
 	return function() {
 		if(!called) {
 			called = true;
-			result = func.apply(null, arguments);
+			result = func.apply(this, arguments);
 		}
 
 		return result;
 	}
 }
+
+ //after(count, function)
+//Creates a version of the function that will only be run after first being called count times.
+function after(count, func) {
+	var run = 0;
+	return function() {
+		run++;
+
+		if(run === count) {
+			return func.apply(this, arguments);
+		}
+	}
+}
+
+//OR: underscore.js version
+function after(times, func) {
+    return function() {
+      if (--times < 1) {
+        return func.apply(this, arguments);
+      }
+    };
+  };
 
 
 
