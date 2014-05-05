@@ -103,6 +103,22 @@ function debounce(func, wait, immediate) {
 	};
 };
 
+//once(function)
+//Creates a version of the function that can only be called one time.
+function once(func) {
+	var called = false;
+	var result;
+
+	return function() {
+		if(!called) {
+			called = true;
+			result = func.apply(null, arguments);
+		}
+
+		return result;
+	}
+}
+
 
 
 
