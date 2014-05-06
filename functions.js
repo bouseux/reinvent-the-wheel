@@ -148,9 +148,22 @@ function now() {
 //wrap(function, wrapper) 
 //Wraps the first function inside of the wrapper function, passing it as the first argument.
 function wrap(func, wrapper) {
-	return wrapper.call(this, func);
+	return partial(wrapper, func);
 }
 
+//compose(*functions)
+//Returns the composition of a list of functions, where each function consumes the return value of the function that follows.
+function compose() {
+	var funcs = Array.prototype.slice(arguments);
+
+	return function() {
+		var args = arguments;
+		for(var i = funcs.length - 1; i > -1; i--) {
+			args = [funcs[i].apply(this, args)];
+		}
+		return args[0];
+	}
+}
 
 
 
