@@ -145,6 +145,12 @@ function now() {
 	return Date.now() || function() { return new Date().getTime(); };
 }
 
+//wrap(function, wrapper) 
+//Wraps the first function inside of the wrapper function, passing it as the first argument.
+function wrap(func, wrapper) {
+	return wrapper.call(this, func);
+}
+
 
 
 
