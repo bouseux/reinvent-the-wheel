@@ -139,7 +139,11 @@ function after(times, func) {
         return func.apply(this, arguments);
       }
     };
-  };
+};
+
+function now() {
+	return Date.now() || function() { return new Date().getTime(); };
+}
 
 
 
