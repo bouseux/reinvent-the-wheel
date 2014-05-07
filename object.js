@@ -31,3 +31,25 @@ function values(obj) {
 
 	return values;
 }
+
+//pairs(object)
+//Convert an object into a list of [key, value] pairs.
+function pairs(obj) {
+	var keysArray = keys(obj);
+	var valuesArray = values(obj);
+
+	var length = keysArray.length;
+
+	var pairs = new Array(length);
+
+	for(var i = 0; i < length; i++) {
+		pairs[i] =  new Array(2);
+		pairs[i][0] = keysArray[i];
+		pairs[i][1] = valuesArray[i];
+	}
+
+	return pairs;
+}
+
+
+
