@@ -51,5 +51,39 @@ function pairs(obj) {
 	return pairs;
 }
 
+//invert(object) 
+//Returns a copy of the object where the keys have become the values and the values the keys.
+function invert(obj) {
+
+	var output = {};
+
+	for (var prop in obj) {
+		output[obj[prop]] = prop;
+
+	}
+
+	return output;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
