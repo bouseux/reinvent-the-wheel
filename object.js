@@ -80,6 +80,19 @@ function functions(obj) {
 	return output.sort();
 }
 
+//extend(destination, *sources) 
+//Copy all of the properties in the source objects over to the destination object, and return the destination object.
+function extend(destination) {
+	var sources = Array.prototype.slice.call(arguments, 1);
+	for(var i = 0; i < sources. length; i++) {
+		for(var prop in sources[i]) {
+			destination[prop] = sources[i][prop];
+		}
+	}
+
+	return destination;
+}
+
 
 
 
