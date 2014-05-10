@@ -65,6 +65,22 @@ function invert(obj) {
 	return output;
 }
 
+//functions(object) 
+//Returns a sorted list of the names of every method in an object 
+//— that is to say, the name of every function property of the object.
+function functions(obj) {
+	var output = [];
+
+	for (var prop in obj) {
+		if(typeof obj[prop] === 'function') {
+			output.push(prop);
+		}
+	}
+
+	return output.sort();
+}
+
+
 
 
 
