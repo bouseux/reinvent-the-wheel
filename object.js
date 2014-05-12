@@ -93,6 +93,26 @@ function extend(destination) {
 	return destination;
 }
 
+//pick(object, *keys) 
+//Return a copy of the object, filtered to only have values for the whitelisted keys (or array of valid keys).
+function pick(obj) {
+	var keys = Array.prototype.slice.call(arguments, 1);
+	console.log(keys);
+	var output = {};
+
+	for(var i = 0; i < keys.length; i++) {
+		for(var prop in obj) {
+			if(prop === keys[i]) {
+				output[prop] = obj[prop];
+			}
+		}
+	}
+
+	return output;
+}
+
+//OR: if(keys[i] in obj)
+
 
 
 
