@@ -145,6 +145,26 @@ function defaults(obj) {
 	return obj;
 }
 
+//clone(object)
+//Create a shallow-copied clone of the object. Any nested objects or arrays will be copied by reference, not duplicated.
+function clone(obj) {
+	var output = {};
+
+	for(var prop in obj) {
+		output[prop] = obj[prop];
+	}
+
+	return output;
+}
+
+//tap(object, interceptor) 
+//Invokes interceptor with the object, and then returns object. 
+//The primary purpose of this method is to "tap into" a method chain, in order to perform operations on intermediate results within the chain.
+function tap(obj, interceptor) {
+	interceptor(obj);
+	return obj;
+}
+
 
 
 
