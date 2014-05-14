@@ -165,6 +165,13 @@ function tap(obj, interceptor) {
 	return obj;
 }
 
+//has(object, key)
+//Does the object contain the given key? 
+//Identical to object.hasOwnProperty(key), but uses a safe reference to the hasOwnProperty function
+function has(obj, key) {
+	return obj.hasOwnProperty(key);
+}
+
 
 
 
