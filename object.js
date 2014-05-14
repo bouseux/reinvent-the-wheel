@@ -129,6 +129,22 @@ function omit(obj) {
 	return output;
 }
 
+//defaults(object, *defaults) 
+//Fill in undefined properties in object with values from the defaults objects, and return the object. As soon as the property is filled, further defaults will have no effect.
+function defaults(obj) {
+	var defaults = Array.prototype.slice.call(arguments, 1);
+
+	for(var i = 0; i < defaults.length; i++) {
+		for(var prop in defaults[i]) {
+			if(!(prop in obj)) {
+				obj[prop] = defaults[i][prop];
+			}
+		}
+	}
+
+	return obj;
+}
+
 
 
 
