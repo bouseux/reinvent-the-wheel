@@ -172,6 +172,16 @@ function has(obj, key) {
 	return obj.hasOwnProperty(key);
 }
 
+//matches(attrs)
+//Returns a predicate function that will tell you if a passed in object contains all of the key/value properties present in attrs.
+function matches(attrs) {
+	return function(obj) {
+		for(var attr in attrs) {
+			return obj[attr] === attrs[attr];
+		}
+	}
+}
+
 
 
 
