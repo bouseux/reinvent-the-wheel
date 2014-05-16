@@ -182,6 +182,18 @@ function matches(attrs) {
 	}
 }
 
+//isEqual(object, other)
+//Performs an optimized deep comparison between the two objects, to determine if they should be considered equal.
+function isEqual(obj, other) {
+	for(var prop in obj) {
+		if(obj[prop] !== other[prop]) {
+			return false;
+		}
+
+		return true;
+	}
+}
+
 
 
 
