@@ -220,6 +220,12 @@ function isElement(o){
 	);
 }
 
+//isArray(object)
+//Returns true if object is an Array.
+function isArray(obj) {
+	return Array.isArray(obj);
+}
+
 
 
 
