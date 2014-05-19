@@ -226,7 +226,11 @@ function isArray(obj) {
 	return Array.isArray(obj);
 }
 
-
+//isObject(value) 
+//Returns true if value is an Object. Note that JavaScript arrays and functions are objects, while (normal) strings and numbers are not.
+function isObject(obj) {
+	return Object.prototype.toString.call(obj) === "[object Object]";
+}
 
 
 
