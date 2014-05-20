@@ -232,6 +232,11 @@ function isObject(obj) {
 	return Object.prototype.toString.call(obj) === "[object Object]";
 }
 
+//isArguments(object) 
+//Returns true if object is an Arguments object.
+function isArguments(obj) {
+	return Object.prototype.toString.call(obj) === "[object Arguments]";
+}
 
 
 
