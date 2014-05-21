@@ -238,6 +238,18 @@ function isArguments(obj) {
 	return Object.prototype.toString.call(obj) === "[object Arguments]";
 }
 
+//isFunction(object) 
+//Returns true if object is an Function object.
+function isFunction(obj) {
+	return Object.prototype.toString.call(obj) === "[object Function]";
+}
+
+//isFinite(object) 
+//Returns true if object is a finite Number.
+function isFinite(obj) {
+	
+}
+
 
 
 
