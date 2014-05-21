@@ -246,8 +246,8 @@ function isFunction(obj) {
 
 //isFinite(object) 
 //Returns true if object is a finite Number.
-function isFinite(obj) {
-	
+function isFinite2(obj) {
+	return isFinite(obj);
 }
 
 
