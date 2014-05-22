@@ -25,3 +25,14 @@ function times(n, iterator, context) {
 	return output;
 
 }
+
+//random(min, max)
+//Returns a random integer between min and max, inclusive. 
+//If you only pass one argument, it will return a number between 0 and that number.
+function random(min, max) {
+	var diff = max ? (max - min) : (min - 0);
+	var randomDiff = Math.round(Math.random() * diff);
+	var output = max ? (randomDiff + min) : (randomDiff);
+
+	return output;
+}
