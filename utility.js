@@ -36,3 +36,34 @@ function random(min, max) {
 
 	return output;
 }
+
+//uniqueId([prefix]) 
+//Generate a globally-unique id for client-side models or DOM elements that need one. 
+//If prefix is passed, the id will be appended to it.
+var idCounter = 0;
+function uniqueId(prefix) {
+	var id = idCounter++;
+	return prefix ? prefix + id : id;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
