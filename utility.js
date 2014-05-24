@@ -46,6 +46,11 @@ function uniqueId(prefix) {
 	return prefix ? prefix + id : id;
 }
 
+//chain(obj) 
+//Returns a wrapped object. Calling methods on this object will continue to return wrapped objects until value is used.
+function chain(obj) {
+	
+}
 
 
 
