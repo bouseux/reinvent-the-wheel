@@ -13,3 +13,14 @@ function each(list, iterator) {
 		iterator.call(context, list[key], key, list);
 	}
 }
+
+//map(list, iterator, [context])
+//Produces a new array of values by mapping each value in list through a transformation function (iterator).
+function map(list, iterator, context) {
+	var output = [];
+	each(list, function(value, index, obj) {
+		output.push(iterator.call(context, value, index, obj));
+	})
+
+	return output;
+}
